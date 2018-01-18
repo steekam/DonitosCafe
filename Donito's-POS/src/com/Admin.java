@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import net.proteanit.sql.DbUtils;
+import java.awt.Toolkit;
 /**
  *
  * @author Kibathi's
@@ -122,6 +123,8 @@ public class Admin extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Administrator");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(Admin.class.getResource("/images/logo.png")));
         setResizable(false);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -1266,4 +1269,6 @@ public class Admin extends javax.swing.JFrame {
        datePickerExpensesEntry.setDate(null);
        datePickerExpensesSearch.setDate(null);
     }
+     
+   
 }

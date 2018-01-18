@@ -6,7 +6,7 @@
 package com;
 
 import java.awt.Color;
-import javax.swing.JFrame;
+import java.awt.Toolkit;
 
 /**
  *
@@ -46,6 +46,8 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Dashboard");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(Dashboard.class.getResource("/images/logo.png")));
         setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);

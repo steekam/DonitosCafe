@@ -5,6 +5,7 @@
  */
 package com;
 
+import com.Printsupport.MyPrintable;
 import java.awt.Color;
 import java.sql.*;
 import java.util.logging.Level;
@@ -12,7 +13,10 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Toolkit;
 
 /**Raised
  *
@@ -71,6 +75,8 @@ public class POS extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("POS");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(POS.class.getResource("/images/logo.png")));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -607,6 +613,21 @@ public class POS extends javax.swing.JFrame {
         
         display_table.clearSelection();
         display_table.setFocusable(false);
+        /*                 ################ PRINTING OF THE RECEIPT###################                                                                */
+         Printsupport ps=new Printsupport();
+         Object printitem [][]=ps.getTableData(order_table);
+         Printsupport.setItems(printitem);
+       
+         PrinterJob pj = PrinterJob.getPrinterJob();
+         pj.setPrintable(new MyPrintable(),Printsupport.getPageFormat(pj));
+                   try {
+                        pj.print();
+           
+                        }
+                    catch (PrinterException ex) {
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(this, ex);
+                    }
         
     }//GEN-LAST:event_confirmOrderPnlMouseClicked
 
