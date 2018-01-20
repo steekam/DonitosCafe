@@ -65,12 +65,12 @@ public static void addtomodel(DefaultTableModel model,Object [][]data,int rowcou
         if(model.getRowCount()!=rowcount)
           addtomodel(model, data, rowcount);
         
-        System.out.println("Check Passed.");
+        //System.out.println("Check Passed.");
 }
           
 public Object[][] getTableData (JTable table) {
     int itemcount=table.getRowCount();
-    System.out.println("Item Count:"+itemcount);
+   // System.out.println("Item Count:"+itemcount);
     
     DefaultTableModel dtm = (DefaultTableModel) table.getModel();
     int nRow = dtm.getRowCount(), nCol =dtm.getColumnCount();
@@ -84,7 +84,7 @@ public Object[][] getTableData (JTable table) {
      if(tableData.length!=itemcount){                      //check for data losses in object array
      getTableData(table);                                  //recursively call method back to collect data
      }   
-    System.out.println("Data check passed");
+   // System.out.println("Data check passed");
     }
     else{
                                                            //collecting data again because of data loss.
@@ -172,7 +172,7 @@ public static class MyPrintable implements Printable {
                 
                     int y=80;
 	              g2d.drawString("ABC Shopping Complex", 40,y);  
-	              g2d.drawString("\\u00a9 2018" + year.get(Calendar.YEAR) , 50,y+10);                 //shift a line by adding 10 to y value
+	              g2d.drawString("\\u00a9 " + year.get(Calendar.YEAR) , 50,y+10);                 //shift a line by adding 10 to y value
 	              g2d.drawString(now(), 10, y+20);                                //print date
 	              g2d.drawString("Cashier : admin", 10, y+30);  
 	        		
