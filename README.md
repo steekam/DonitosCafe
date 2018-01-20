@@ -10,6 +10,6 @@ Staff:
   
   
 Langauges: Java
-Database: Mysql
+Database: Embeded H2 database
 
 Contributors: Kamau Wanyee
