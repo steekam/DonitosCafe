@@ -22,10 +22,10 @@ import net.proteanit.sql.DbUtils;
  * @author steekam
  */
 public class Functionalities {
-    static final String DRIVER = "com.mysql.jdbc.Driver";
-    static final String URL = "jdbc:mysql://localhost/Donitos";
-    static final String USER = "root";
-    static final String PASSWORD = "dracarys_";
+    static final String DRIVER = "org.h2.Driver";
+    static final String URL = "jdbc:h2:~/test";
+    static final String USER = "sa";
+    static final String PASSWORD = "";
     
     public static String query_menu = "SELECT * FROM menu;";
     public static String insert_menu = "INSERT INTO `menu`(`ItemCode`, `Name`, `Type`, `Price`) VALUES (?,?,?,?);";
@@ -37,16 +37,16 @@ public class Functionalities {
     public static String remove_expense = "DELETE FROM `expenses` WHERE EntryNo = ?;";
     public static String dsales_query = "SELECT * FROM sales;";
     public static String dsales_insert = "INSERT INTO `sales`(`Date`, `Sales`, `Amount`) VALUES (now(),?,?);";
-    public static String dsales_update = "UPDATE `sales` SET `Sales` = ?,`Amount` = ? WHERE `Date` = DATE(now());";
+    public static String dsales_update = "UPDATE `sales` SET `Sales` = ?,`Amount` = ? WHERE `Date` = CURRENT_DATE();";
     public static String dsale_search = "SELECT * FROM sales WHERE Date = ?;";
-    public static String msales_query = "SELECT * FROM monthlySale;";
-    public static String msales_search = "SELECT * FROM `monthlySale` WHERE Year = ?;";
+    public static String msales_query = "SELECT * FROM monthlysales;";
+    public static String msales_search = "SELECT * FROM `monthlysales` WHERE Year = ?;";
     
     public static String pos_menu = "SELECT ItemCode, Name, Price FROM menu;";
-    public static String breakfast_query = "SELECT ItemCode, Name, Price FROM menu WHERE Type = \"breakfast\";";
-    public static String snacks_query = "SELECT ItemCode, Name, Price FROM menu WHERE Type =  \"snacks\";";
-    public static String meals_query = "SELECT ItemCode, Name, Price FROM menu WHERE Type = \"meals\";";
-    public static String drinks_query = "SELECT ItemCode, Name, Price FROM menu WHERE Type = \"drinks\";";
+    public static String breakfast_query = "SELECT ItemCode, Name, Price FROM menu WHERE Type = 'breakfast';";
+    public static String snacks_query = "SELECT ItemCode, Name, Price FROM menu WHERE Type =  'snacks';";
+    public static String meals_query = "SELECT ItemCode, Name, Price FROM menu WHERE Type = 'meals';";
+    public static String drinks_query = "SELECT ItemCode, Name, Price FROM menu WHERE Type = 'drinks';";
     
     
    public static void fetch(JFrame window, String query, JTable table){
@@ -77,9 +77,8 @@ public class Functionalities {
        }
        return rs;
    }
-   
 
-   
+       
  }
  
 

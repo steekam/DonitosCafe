@@ -576,7 +576,7 @@ public class POS extends javax.swing.JFrame {
             connection = DriverManager.getConnection(Functionalities.URL, Functionalities.USER, Functionalities.PASSWORD);
             
 //            -----------------------Checking if TODAY has an entry-------------------------------------
-            PreparedStatement stm = connection.prepareStatement("SELECT * FROM `sales` WHERE Date = DATE(now());");
+            PreparedStatement stm = connection.prepareStatement("SELECT * FROM `sales` WHERE Date = CURRENT_DATE();");
             ResultSet rs = stm.executeQuery();
             
             if (rs.next() == false && Integer.parseInt(total_field.getText()) != 0){   
@@ -587,7 +587,7 @@ public class POS extends javax.swing.JFrame {
             st.execute();
             
             } else if(Integer.parseInt(total_field.getText()) != 0){
-                
+               
                 int sales = rs.getInt("Sales");
                 int amount = rs.getInt("Amount");
                 
@@ -596,7 +596,7 @@ public class POS extends javax.swing.JFrame {
                 PreparedStatement statement = connection.prepareStatement(Functionalities.dsales_update);
                 statement.setString(1, newSales);
                 statement.setString(2, newAmount);
-                statement.execute();
+                statement.execute();         
                 
             }          
            
@@ -607,13 +607,8 @@ public class POS extends javax.swing.JFrame {
         } else if (choice == JOptionPane.CANCEL_OPTION){
             
         }
-        DefaultTableModel model = (DefaultTableModel) order_table.getModel();
-        model.setRowCount(0);
-        total_field.setText("0");
         
-        display_table.clearSelection();
-        display_table.setFocusable(false);
-        /*                 ################ PRINTING OF THE RECEIPT###################                                                                */
+          /*                 ################ PRINTING OF THE RECEIPT###################                                                                */
          Printsupport ps=new Printsupport();
          Object printitem [][]=ps.getTableData(order_table);
          Printsupport.setItems(printitem);
@@ -625,10 +620,17 @@ public class POS extends javax.swing.JFrame {
            
                         }
                     catch (PrinterException ex) {
-                        ex.printStackTrace();
+                        
                         JOptionPane.showMessageDialog(this, ex);
                     }
+        DefaultTableModel model = (DefaultTableModel) order_table.getModel();
+        model.setRowCount(0);
+        total_field.setText("0");
         
+        display_table.clearSelection();
+        display_table.setFocusable(false);
+        
+           
     }//GEN-LAST:event_confirmOrderPnlMouseClicked
 
     private void addOrderItemPnlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addOrderItemPnlMouseClicked

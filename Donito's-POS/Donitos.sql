@@ -1,39 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 4.7.7
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Jan 20, 2018 at 07:26 AM
--- Server version: 10.2.9-MariaDB
--- PHP Version: 7.1.13
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `Donitos`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `expenses`
---
 
 CREATE TABLE `expenses` (
   `EntryNo` int(11) NOT NULL,
   `Date` date NOT NULL,
   `Description` text NOT NULL,
   `Amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 -- --------------------------------------------------------
 
@@ -46,7 +18,7 @@ CREATE TABLE `menu` (
   `Name` varchar(50) NOT NULL,
   `Type` varchar(20) NOT NULL,
   `Price` int(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `menu`
@@ -105,33 +77,17 @@ CREATE TABLE `sales` (
   `Date` date NOT NULL,
   `Sales` int(11) NOT NULL,
   `Amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
---
--- Dumping data for table `sales`
---
 
-INSERT INTO `sales` (`Date`, `Sales`, `Amount`) VALUES
-('2018-01-20', 1, 200);
 
 -- --------------------------------------------------------
 
---
--- Structure for view `monthlySale`
---
-DROP TABLE IF EXISTS `monthlySale`;
--- Error reading structure for table Donitos.monthlySale: #1046 - No database selected
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `expenses`
---
 ALTER TABLE `expenses`
-  ADD PRIMARY KEY (`EntryNo`),
-  ADD KEY `Date` (`Date`);
+  ADD PRIMARY KEY (`EntryNo`);
+  CREATE INDEX index_DATE ON `expenses` (`Date`);
 
 --
 -- Indexes for table `menu`
@@ -154,6 +110,26 @@ ALTER TABLE `sales`
 --
 ALTER TABLE `expenses`
   MODIFY `EntryNo` int(11) NOT NULL AUTO_INCREMENT;
+  
+--
+-- CREATING VIEW for monthlysale table
+--
+CREATE VIEW monthlysales AS
+(SELECT tSales.Month AS Month, 
+tsales.Year AS Year,
+Sales,
+Expenses,
+(Sales - Expenses) AS Profit 
+FROM  (
+    SELECT SUM(Amount) AS Sales, MONTHNAME(Date) AS Month,YEAR(Date) AS Year FROM sales GROUP BY Month,Year
+    ) AS tSales
+    INNER JOIN (
+        SELECT SUM(Amount) AS Expenses, MONTHNAME(Date) AS Month, YEAR(Date) AS Year FROM expenses GROUP BY Month,Year
+        ) AS tExpenses 
+        ON tSales.Month = tExpenses.Month GROUP BY Month,Year
+);
+
+)
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

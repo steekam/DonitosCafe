@@ -814,7 +814,7 @@ public class Admin extends javax.swing.JFrame {
             .addComponent(base_pnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(820, 569));
+        setSize(new java.awt.Dimension(830, 570));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -915,6 +915,7 @@ public class Admin extends javax.swing.JFrame {
             
             connection.close();
         } catch (SQLException | ClassNotFoundException ex ) {
+             JOptionPane.showMessageDialog(this, ex);
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
              
         } catch (NullPointerException ex){
