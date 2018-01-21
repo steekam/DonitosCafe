@@ -17,10 +17,7 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
-    static final String DRIVER = "com.mysql.jdbc.Driver";
-    static final String DATABASE_URL = "jdbc:mysql://localhost/dbBooks";
-    static final String USER = "root";
-    static final String PASSWORD = "dracarys_";
+   
     public Dashboard() {
         initComponents();
     }
@@ -221,7 +218,8 @@ public class Dashboard extends javax.swing.JFrame {
     private void admin_pnlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_admin_pnlMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        new Admin().setVisible(true);
+        new AdminLogIn().setVisible(true);
+        
     }//GEN-LAST:event_admin_pnlMouseClicked
 
     private void pos_lblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pos_lblMouseClicked

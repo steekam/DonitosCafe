@@ -141,7 +141,7 @@ public class Admin extends javax.swing.JFrame {
         nav_pnl.setBackground(new java.awt.Color(244, 176, 66));
         nav_pnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        menu.setBackground(new java.awt.Color(155, 100, 40));
+        menu.setBackground(new java.awt.Color(185, 244, 66));
         menu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -170,7 +170,7 @@ public class Admin extends javax.swing.JFrame {
 
         nav_pnl.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 100));
 
-        expenses.setBackground(new java.awt.Color(155, 100, 40));
+        expenses.setBackground(new java.awt.Color(185, 244, 66));
         expenses.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         expenses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -199,7 +199,7 @@ public class Admin extends javax.swing.JFrame {
 
         nav_pnl.add(expenses, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 110, 110));
 
-        sales.setBackground(new java.awt.Color(155, 100, 40));
+        sales.setBackground(new java.awt.Color(185, 244, 66));
         sales.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         sales.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -228,7 +228,7 @@ public class Admin extends javax.swing.JFrame {
 
         nav_pnl.add(sales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 110, 100));
 
-        msales.setBackground(new java.awt.Color(155, 100, 40));
+        msales.setBackground(new java.awt.Color(185, 244, 66));
         msales.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         msales.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1112,12 +1112,12 @@ public class Admin extends javax.swing.JFrame {
     
     public void setColor(JPanel panel){
         
-          panel.setBackground(new Color(92, 63, 32));  
+          panel.setBackground(new Color(202, 244, 65));  
                
     }
     public void resetColor(JPanel panel){
         
-            panel.setBackground(new Color(155,100,40));
+            panel.setBackground(new Color(185, 244, 66));
                     
     }
     

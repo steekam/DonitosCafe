@@ -44,8 +44,7 @@ public static void setItems(Object[][] printitem){
        //assume jtable has 4 columns.
         model.addColumn(title[0]);
         model.addColumn(title[1]);
-//        model.addColumn(title[2]);
-//        model.addColumn(title[3]);
+
         
 
         int rowcount=printitem.length;
@@ -99,9 +98,9 @@ public static PageFormat getPageFormat(PrinterJob pj){
              
                 double middleHeight =total_item_count*1.0;  //dynamic----->change with the row count of jtable
                 double headerHeight = 5.0;                  //fixed----->but can be mod
-        	double footerHeight = 5.0;                  //fixed----->but can be mod
+        	double footerHeight = 10.0;                  //fixed----->but can be mod
                 
-                double width = convert_CM_To_PPI(7);      //printer know only point per inch.default value is 72ppi
+                double width = convert_CM_To_PPI(8);      //printer know only point per inch.default value is 72ppi
         	double height = convert_CM_To_PPI(headerHeight+middleHeight+footerHeight); 
             paper.setSize(width, height);
             paper.setImageableArea(
@@ -144,7 +143,7 @@ public static class MyPrintable implements Printable {
 	                double width = pageFormat.getImageableWidth();
 	                double height = pageFormat.getImageableHeight();    
 	                g2d.translate((int) pageFormat.getImageableX(),(int) pageFormat.getImageableY()); 
-	                Font font = new Font("Monospaced",Font.PLAIN,7);       
+	                Font font = new Font("Monospaced",Font.PLAIN,10);       
 	                g2d.setFont(font);
                        
 	                
@@ -171,18 +170,16 @@ public static class MyPrintable implements Printable {
                 Calendar year = Calendar.getInstance();
                 
                     int y=80;
-	              g2d.drawString("ABC Shopping Complex", 40,y);  
-	              g2d.drawString("\\u00a9 " + year.get(Calendar.YEAR) , 50,y+10);                 //shift a line by adding 10 to y value
+	              g2d.drawString("DONITO'S CAFE", 40,y);  
+	                              
 	              g2d.drawString(now(), 10, y+20);                                //print date
-	              g2d.drawString("Cashier : admin", 10, y+30);  
+	              g2d.drawString("Cashier : admin", 10, y+40);  
 	        		
 	              /*Draw Colums*/
-                      g2d.drawLine(10, y+40, 180, y+40);
-                      g2d.drawString(title[0], 10 ,y+50);
-                      g2d.drawString(title[1], 50 ,y+50);
-//                      g2d.drawString(title[2], 100 ,y+50);
-//                      g2d.drawString(title[3], 150 ,y+50);
-                      g2d.drawLine(10, y+60, 180, y+60);
+                      g2d.drawLine(10, y+40, 180, y+50);
+                      g2d.drawString(title[0], 50 ,y+60);
+                      g2d.drawString(title[1], 150 ,y+60);//                     
+                      g2d.drawLine(10, y+60, 180, y+70);
                    
 	              int cH = 0;
 	              TableModel mod = itemsTable.getModel();
@@ -200,15 +197,16 @@ public static class MyPrintable implements Printable {
 	                	
 	                	
 	                	g2d.drawString(itemname,50, cH);
-	                	g2d.drawString(price , 100, cH);
+	                	g2d.drawString(price , 150, cH);
                                 
                               
 	                }
 
 	                /*Footer*/
-	                font = new Font("Arial",Font.BOLD,16) ;                  //changed font size
+	                font = new Font("Arial",Font.BOLD,12) ;                  //changed font size
 	                g2d.setFont(font);
                         g2d.drawString("Thank You Come Again",30, cH+10);
+                        g2d.drawString("© " + year.get(Calendar.YEAR) , 60,y+10);
                                                                                  //end of the reciept
             }
             catch(Exception r){

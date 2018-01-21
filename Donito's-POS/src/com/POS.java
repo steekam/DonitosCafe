@@ -84,7 +84,7 @@ public class POS extends javax.swing.JFrame {
 
         menu_pnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        brkfst.setBackground(new java.awt.Color(155, 100, 40));
+        brkfst.setBackground(new java.awt.Color(185, 244, 66));
         brkfst.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         brkfst.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -119,7 +119,7 @@ public class POS extends javax.swing.JFrame {
 
         menu_pnl.add(brkfst, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 110));
 
-        snacks.setBackground(new java.awt.Color(155, 100, 40));
+        snacks.setBackground(new java.awt.Color(185, 244, 66));
         snacks.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         snacks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,7 +154,7 @@ public class POS extends javax.swing.JFrame {
 
         menu_pnl.add(snacks, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 106, 120, 110));
 
-        meals.setBackground(new java.awt.Color(155, 100, 40));
+        meals.setBackground(new java.awt.Color(185, 244, 66));
         meals.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         meals.setPreferredSize(new java.awt.Dimension(92, 100));
         meals.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,7 +190,7 @@ public class POS extends javax.swing.JFrame {
 
         menu_pnl.add(meals, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 212, 120, 110));
 
-        drinks.setBackground(new java.awt.Color(155, 100, 40));
+        drinks.setBackground(new java.awt.Color(185, 244, 66));
         drinks.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         drinks.setPreferredSize(new java.awt.Dimension(92, 100));
         drinks.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -708,7 +708,7 @@ public class POS extends javax.swing.JFrame {
     
     public void setColor(JPanel panel){
         try {
-          panel.setBackground(new Color(92, 63, 32));  
+          panel.setBackground(new Color(202, 244, 65));  
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Bug found. Contact developer", "Bug Found", JOptionPane.ERROR_MESSAGE);
         }
@@ -716,7 +716,7 @@ public class POS extends javax.swing.JFrame {
     }
     public void resetColor(JPanel panel){
         try {
-            panel.setBackground(new Color(155,100,40));
+            panel.setBackground(new Color(185, 244, 66));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Bug found. Contact developer", "Bug Found", JOptionPane.ERROR_MESSAGE);
         }
