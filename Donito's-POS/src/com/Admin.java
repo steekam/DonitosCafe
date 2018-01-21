@@ -95,24 +95,24 @@ public class Admin extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         addexpense_pnl = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        datePickerExpensesEntry = new org.jdesktop.swingx.JXDatePicker();
         description_txtfield = new javax.swing.JTextField();
         amount_txtfield = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        datePickerExpensesSearch = new org.jdesktop.swingx.JXDatePicker();
         search_pnl = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         entryNo_txtfield = new javax.swing.JTextField();
         btn_removeExpense = new javax.swing.JButton();
+        datePickerExpensesEntry = new org.jdesktop.swingx.JXDatePicker();
+        datePickerExpensesSearch = new org.jdesktop.swingx.JXDatePicker();
         dsales_pnl = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         sales_table = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
-        datePickerShowSales = new org.jdesktop.swingx.JXDatePicker();
         btn_searchDsales = new javax.swing.JButton();
+        datePickerShowSales = new org.jdesktop.swingx.JXDatePicker();
         msales_pnl = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         msalesTable = new javax.swing.JTable();
@@ -569,19 +569,20 @@ public class Admin extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(entryNo_txtfield, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(expenses_pnlLayout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(jLabel10)
-                                        .addGap(56, 56, 56)
-                                        .addComponent(datePickerExpensesEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(expenses_pnlLayout.createSequentialGroup()
                                         .addGroup(expenses_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(expenses_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(expenses_pnlLayout.createSequentialGroup()
+                                                    .addComponent(jLabel12)
+                                                    .addGap(45, 45, 45))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, expenses_pnlLayout.createSequentialGroup()
+                                                    .addComponent(jLabel11)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                                             .addGroup(expenses_pnlLayout.createSequentialGroup()
-                                                .addComponent(jLabel12)
-                                                .addGap(45, 45, 45))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, expenses_pnlLayout.createSequentialGroup()
-                                                .addComponent(jLabel11)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                                .addGap(9, 9, 9)
+                                                .addComponent(jLabel10)
+                                                .addGap(56, 56, 56)))
                                         .addGroup(expenses_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(datePickerExpensesEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(amount_txtfield, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(description_txtfield, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, expenses_pnlLayout.createSequentialGroup()
@@ -597,9 +598,9 @@ public class Admin extends javax.swing.JFrame {
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                         .addGap(53, 53, 53))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, expenses_pnlLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(datePickerExpensesSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(datePickerExpensesSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
                                 .addComponent(search_pnl, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(9, 9, 9)))
                         .addGap(2361, 2361, 2361))
@@ -614,11 +615,11 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(expenses_pnlLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addComponent(jLabel14)
-                .addGap(26, 26, 26)
-                .addGroup(expenses_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(datePickerExpensesEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(38, 38, 38)
+                .addGap(24, 24, 24)
+                .addGroup(expenses_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(datePickerExpensesEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(expenses_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(description_txtfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
@@ -631,10 +632,10 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jLabel15)
                 .addGap(17, 17, 17)
-                .addGroup(expenses_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(expenses_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(expenses_pnlLayout.createSequentialGroup()
                         .addComponent(datePickerExpensesSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel27))
                     .addComponent(search_pnl, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -685,13 +686,13 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(dsales_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dsales_pnlLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(btn_searchDsales))
+                    .addGroup(dsales_pnlLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(dsales_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(datePickerShowSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(dsales_pnlLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btn_searchDsales)))
+                            .addComponent(datePickerShowSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18))))
                 .addGap(0, 83, Short.MAX_VALUE))
         );
         dsales_pnlLayout.setVerticalGroup(
@@ -700,9 +701,9 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(dsales_pnlLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addComponent(datePickerShowSales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(btn_searchDsales)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

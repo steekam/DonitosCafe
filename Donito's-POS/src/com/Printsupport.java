@@ -68,6 +68,7 @@ public static void addtomodel(DefaultTableModel model,Object [][]data,int rowcou
 }
           
 public Object[][] getTableData (JTable table) {
+    total_item_count = table.getRowCount();
     int itemcount=table.getRowCount();
    // System.out.println("Item Count:"+itemcount);
     
@@ -97,11 +98,12 @@ public static PageFormat getPageFormat(PrinterJob pj){
         Paper paper = pf.getPaper();    
              
                 double middleHeight =total_item_count*1.0;  //dynamic----->change with the row count of jtable
-                double headerHeight = 5.0;                  //fixed----->but can be mod
+                double headerHeight = 1.0;                  //fixed----->but can be mod
         	double footerHeight = 10.0;                  //fixed----->but can be mod
                 
                 double width = convert_CM_To_PPI(8);      //printer know only point per inch.default value is 72ppi
-        	double height = convert_CM_To_PPI(headerHeight+middleHeight+footerHeight); 
+        	double height = convert_CM_To_PPI(headerHeight+middleHeight+footerHeight);
+                
             paper.setSize(width, height);
             paper.setImageableArea(
                             convert_CM_To_PPI(0.25), 
@@ -169,21 +171,21 @@ public static class MyPrintable implements Printable {
 	        /*Draw Header*/
                 Calendar year = Calendar.getInstance();
                 
-                    int y=80;
+                    int y=25;
 	              g2d.drawString("DONITO'S CAFE", 40,y);  
 	                              
 	              g2d.drawString(now(), 10, y+20);                                //print date
 	              g2d.drawString("Cashier : admin", 10, y+40);  
 	        		
 	              /*Draw Colums*/
-                      g2d.drawLine(10, y+40, 180, y+50);
-                      g2d.drawString(title[0], 50 ,y+60);
+                      g2d.drawLine(10, y+50, 180, y+50);
+                      g2d.drawString(title[0], 12 ,y+60);
                       g2d.drawString(title[1], 150 ,y+60);//                     
-                      g2d.drawLine(10, y+60, 180, y+70);
+                      g2d.drawLine(10, y+65, 180, y+65);
                    
 	              int cH = 0;
 	              TableModel mod = itemsTable.getModel();
-                        
+                      int totalPrice = 0;
 	              for(int i = 0;i < mod.getRowCount() ; i++){
 	                	/*Assume that all parameters are in string data type for this situation
                                  * All other premetive data types are accepted.
@@ -191,22 +193,27 @@ public static class MyPrintable implements Printable {
 	                	
 	                	String itemname = mod.getValueAt(i, 0).toString();
                                 String price = mod.getValueAt(i, 1).toString();
+                                totalPrice = totalPrice + Integer.parseInt(price);
                                 
 	                	
-	                	cH = (y+70) + (10*i);                             //shifting drawing line
+	                	cH = (y+75) + (10*i);                             //shifting drawing line
 	                	
 	                	
-	                	g2d.drawString(itemname,50, cH);
+	                	g2d.drawString(itemname,12, cH);
 	                	g2d.drawString(price , 150, cH);
                                 
                               
 	                }
+                      /*Drawing the Total*/
+                      g2d.drawString("Total", 60, cH+20);
+                      g2d.drawString(Integer.toString(totalPrice), 150, cH+20);
+                      
 
 	                /*Footer*/
 	                font = new Font("Arial",Font.BOLD,12) ;                  //changed font size
 	                g2d.setFont(font);
-                        g2d.drawString("Thank You Come Again",30, cH+10);
-                        g2d.drawString("© " + year.get(Calendar.YEAR) , 60,y+10);
+                        g2d.drawString("Thank You Come Again",30, cH+40);
+                        g2d.drawString("© " + year.get(Calendar.YEAR) , 60,cH+60);
                                                                                  //end of the reciept
             }
             catch(Exception r){
